@@ -1,0 +1,18 @@
+.banner-area {
+    background: #201c1c;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+  .banner-content {
+      padding: 70px 0;
+  }
+  .banner-content h2{
+      font-size: 40px;
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 500;
+      text-transform: capitalize;
+      z-index: 1;
+      position: relative;
+  }
