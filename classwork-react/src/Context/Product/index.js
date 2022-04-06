@@ -16,10 +16,15 @@ function ProductsProvider({children}) {
       history.push(`/singleProduct/${id}`)
     },[history])
 
-    React.useEffect(()=>{
-        productService.getAllProducts().then(({data})=>setProducts(data))
+    const getProducts=React.useCallback(()=>{
+      productService.getAllProducts().then(({data})=>setProducts(data))
     },[])
 
+    React.useEffect(()=>{
+      getProducts()
+    },[getProducts])
+
+    
   return (
     <ProductContext.Provider value={[{products,handleCreate,handleDetails}]}>
         {children}

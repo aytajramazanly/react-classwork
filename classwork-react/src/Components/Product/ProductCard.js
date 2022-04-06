@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button} from 'reactstrap'
-import './card.scss';
+import './scss/card.scss';
 
 function ProductCard({id,name,price,imagePath,handleDetails}) {
   return (
