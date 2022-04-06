@@ -93,7 +93,7 @@ function CreateProduct() {
                     Description
                 </Label>
             </FormGroup>
-            <Button onClick={handleSubmit} class="add-btn">
+            <Button onClick={handleSubmit} className="add-btn">
                 Submit
             </Button>
         </Form>

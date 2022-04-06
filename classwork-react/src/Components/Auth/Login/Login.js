@@ -8,17 +8,17 @@ import Banner from '../../Banner/banner'
 function Login() {
     const history = useHistory();
     const [isAuth,setAuth]=React.useState(true);
-    const [username,setUsername]=React.useState();
-    const [password, setPassword]=React.useState();
-    
-    const handleChangeUsername=(e)=>{
-        setUsername(e.target.value)
-    }
-    const handleChangePassword=(e)=>{
-        setPassword( e.target.value)
+    const [credentials,setCredentials]=React.useState({
+        username:"",
+        password:""
+    })
+
+    const handleChangeCredentials=(e)=>{
+        const {name,value}=e.target
+        setCredentials(olduValue=>({...olduValue,[name]:value}))
     }
     const handleSubmit=()=>{
-        if (username==="admin" && password==="admin123") {
+        if (credentials.username==="admin" && credentials.password==="admin123") {
             setAuth(true)
             history.push("/products", {isAuth})
         }
@@ -37,7 +37,7 @@ function Login() {
                 name="username"
                 placeholder="Username"
                 type="text"
-                onChange={handleChangeUsername}
+                onChange={handleChangeCredentials}
             />
             <Label for="exampleEmail">
                 Username
@@ -49,7 +49,7 @@ function Login() {
                 name="password"
                 placeholder="Password"
                 type="password"
-                onChange={handleChangePassword}
+                onChange={handleChangeCredentials}
             />
             <Label for="examplePassword">
                 Password
@@ -59,7 +59,7 @@ function Login() {
              Login
             </Button>
         </Form>
-        {isAuth ? "" : (<DangerToast/>)}
+        {!isAuth && <DangerToast/>}
     </div>
    </>
   )
