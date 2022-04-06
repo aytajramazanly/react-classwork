@@ -1,20 +1,20 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom';
 import {productService} from '../../API/Services/ProductService'
-import { useHistory } from 'react-router-dom'
 
 const ProductContext=React.createContext([]);
 
 function ProductsProvider({children}) {
     const [products,setProducts] =React.useState()
-    const history=useHistory()
+    const history= useHistory();
 
-    const handleCreate=()=>{
-      history.push("/createProduct")
-    }
+    const handleCreate=React.useCallback(()=>{
+      history.push('/createProduct')
+    },[history])
   
-    const handleDetails=(id)=>{
+    const handleDetails=React.useCallback((id)=>{
       history.push(`/singleProduct/${id}`)
-    }
+    },[history])
 
     React.useEffect(()=>{
         productService.getAllProducts().then(({data})=>setProducts(data))

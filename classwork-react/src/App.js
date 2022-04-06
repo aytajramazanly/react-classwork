@@ -14,9 +14,9 @@ import QualityProduct from './Components/Product/QualityProduct';
 
 function App() {
   return (
-   <ProductsProvider>
-      <Router>
-        <Switch>
+    <Router>
+      <ProductsProvider>
+          <Switch>
           <Route path="/" exact component={Login}/>
           <Route path="/products" exact component={Products}/>
           <Route path="/createProduct" exact component={CreateProduct}/>
@@ -24,8 +24,9 @@ function App() {
           <Route path="/qualityProduct"  component={QualityProduct}/>
           <Redirect to={"/"}/>
         </Switch>
-    </Router>
-   </ProductsProvider>
+      </ProductsProvider>
+  </Router>
+   
   );
 }
 
